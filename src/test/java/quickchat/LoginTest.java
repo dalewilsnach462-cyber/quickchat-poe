@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * Unit tests for the Login class, using the exact test data supplied in the
  * PROG5121 PoE Part 1 brief.
  */
+// Tests use the exact data supplied in the PoE brief so results
+// can be verified against the marking rubric.
 public class LoginTest {
 
     private Login login;
