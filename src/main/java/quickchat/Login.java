@@ -130,6 +130,8 @@ public class Login {
      *
      * @return the combined feedback message for all three checks.
      */
+     // Runs all three validation checks and only stores the user's
+    // details if username, password, and cell number are all valid.
     public String registerUser(String username, String password, String cellPhoneNumber) {
         boolean validUsername = checkUserName(username);
         boolean validPassword = checkPasswordComplexity(password);
