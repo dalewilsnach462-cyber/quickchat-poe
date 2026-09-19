@@ -25,6 +25,9 @@ import java.util.regex.Pattern;
  * Available at: https://www.baeldung.com/java-regex-validate-phone-numbers
  * (Accessed: 2026).
  */
+
+
+
 public class Login {
 
     private String username;
@@ -77,6 +80,8 @@ public class Login {
      * Checks that the username contains an underscore and is no more than
      * five characters long.
      */
+    // Checks two conditions: the username must include an underscore
+// and must not exceed five characters in length.
     public boolean checkUserName(String username) {
         if (username == null) {
             return false;
