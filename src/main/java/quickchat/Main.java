@@ -12,6 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+         // Console-only application — no GUI or JOptionPane is used here
+         // per the PoE requirements.
         Login login = new Login();
 
         System.out.println("=== QuickChat Registration ===");
