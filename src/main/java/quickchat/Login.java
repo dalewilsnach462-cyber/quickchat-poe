@@ -96,7 +96,8 @@ public class Login {
      *  - contains a number
      *  - contains a special character
      */
-    // Password must be at least 8 characters, and contain a capital // letter, a number, and a special character to be considered valid.
+    // Password must be at least 8 characters, and contain a capital 
+     // letter, a number, and a special character to be considered valid
     public boolean checkPasswordComplexity(String password) {
         if (password == null) {
             return false;
@@ -112,6 +113,8 @@ public class Login {
      * Checks that the cell phone number contains the South African
      * international country code (+27) followed by nine digits.
      */
+     // Validates that the number starts with South Africa's international
+    // dialling code (+27) followed by nine digits.
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
         if (cellPhoneNumber == null) {
             return false;
