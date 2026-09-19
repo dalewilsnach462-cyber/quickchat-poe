@@ -96,6 +96,7 @@ public class Login {
      *  - contains a number
      *  - contains a special character
      */
+    // Password must be at least 8 characters, and contain a capital // letter, a number, and a special character to be considered valid.
     public boolean checkPasswordComplexity(String password) {
         if (password == null) {
             return false;
