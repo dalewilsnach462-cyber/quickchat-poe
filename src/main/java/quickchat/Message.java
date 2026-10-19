@@ -101,6 +101,7 @@ public class Message {
      * Creates the hash: first two digits of the ID, a colon, the message
      * number, a colon, then the first and last words, all in capitals.
      */
+    // Hash format: first two ID digits : message number : first word + last word (all caps)
     public String createMessageHash() {
         String idStart = messageID.substring(0, 2);
 
