@@ -97,6 +97,7 @@ public class Main {
     }
 
     /** Lets the user enter the remaining messages; returns the new count entered. */
+    // Loops from the number already entered up to the user's chosen maximum
     private static int sendMessages(Scanner scanner, int maxMessages, int alreadyEntered) {
         for (int i = alreadyEntered; i < maxMessages; i++) {
             System.out.println();
