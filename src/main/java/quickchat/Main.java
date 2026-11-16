@@ -59,6 +59,7 @@ public class Main {
         // ---------- Part 2: messaging ----------
         System.out.println();
         System.out.println("Welcome to QuickChat.");
+        Message.loadStoredMessagesFromJson();
 
         int maxMessages = readPositiveInt(scanner, "How many messages do you wish to enter? ");
         int messagesEntered = 0;
@@ -69,6 +70,7 @@ public class Main {
             System.out.println("1) Send Messages");
             System.out.println("2) Show recently sent messages");
             System.out.println("3) Quit");
+            System.out.println("4) Stored Messages");
             System.out.print("Choose an option: ");
             String option = scanner.nextLine().trim();
 
@@ -88,8 +90,11 @@ public class Main {
                     running = false;
                     System.out.println("Goodbye!");
                     break;
+                case "4":
+                    storedMessagesMenu(scanner, login.getUsername());
+                    break;
                 default:
-                    System.out.println("Invalid option, please enter 1, 2 or 3.");
+                    System.out.println("Invalid option, please enter 1, 2, 3 or 4.");
             }
         }
 
@@ -97,7 +102,6 @@ public class Main {
     }
 
     /** Lets the user enter the remaining messages; returns the new count entered. */
-    // Loops from the number already entered up to the user's chosen maximum
     private static int sendMessages(Scanner scanner, int maxMessages, int alreadyEntered) {
         for (int i = alreadyEntered; i < maxMessages; i++) {
             System.out.println();
@@ -149,6 +153,56 @@ public class Main {
             }
         }
         return maxMessages;
+    }
+
+    /** Part 3: sub-menu for working with the stored/sent message arrays. */
+    private static void storedMessagesMenu(Scanner scanner, String senderUsername) {
+        boolean back = false;
+        while (!back) {
+            System.out.println();
+            System.out.println("--- Stored Messages ---");
+            System.out.println("a) Display sender and recipient of all stored messages");
+            System.out.println("b) Display the longest stored message");
+            System.out.println("c) Search for a message ID");
+            System.out.println("d) Search all messages for a recipient");
+            System.out.println("e) Delete a message using its hash");
+            System.out.println("f) Display a report of the messages");
+            System.out.println("g) Back to main menu");
+            System.out.print("Choose an option: ");
+            String choice = scanner.nextLine().trim().toLowerCase();
+
+            switch (choice) {
+                case "a":
+                    System.out.println(Message.displayStoredSendersAndRecipients(senderUsername));
+                    break;
+                case "b":
+                    System.out.println(Message.displayLongestStoredMessage());
+                    break;
+                case "c":
+                    System.out.print("Enter the message ID: ");
+                    System.out.println(Message.searchByMessageID(scanner.nextLine().trim()));
+                    break;
+                case "d":
+                    System.out.print("Enter the recipient number: ");
+                    System.out.println(Message.searchMessagesByRecipient(scanner.nextLine().trim()));
+                    break;
+                case "e":
+                    System.out.print("Enter the message hash: ");
+                    System.out.println(Message.deleteMessageByHash(scanner.nextLine().trim()));
+                    break;
+                case "f":
+                    System.out.println("=== Stored messages ===");
+                    System.out.println(Message.displayStoredReport());
+                    System.out.println("=== Sent messages ===");
+                    System.out.println(Message.displayReport());
+                    break;
+                case "g":
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid option, please enter a letter from a to g.");
+            }
+        }
     }
 
     private static int readPositiveInt(Scanner scanner, String prompt) {
