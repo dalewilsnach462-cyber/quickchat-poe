@@ -340,6 +340,7 @@ public class Message {
     }
 
     /** (d) All sent or stored messages for one recipient. */
+    // Searches the sent and stored arrays for every message to this recipient
     public static String searchMessagesByRecipient(String recipient) {
         List<String> found = new ArrayList<>();
         for (Message m : sentMessages) {
