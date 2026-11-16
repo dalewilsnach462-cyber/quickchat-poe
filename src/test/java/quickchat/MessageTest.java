@@ -18,14 +18,18 @@ public class MessageTest {
     private static final String MSG1 = "Hi Mike, can you join us for dinner tonight?";
     private static final String MSG2 = "Hi Keegan, did you receive the payment?";
 
+    private static final String TEST_JSON = "test-storedMessages.json";
+
     @BeforeEach
     void setUp() {
+        Message.setJsonFilePathForTests(TEST_JSON);
+        new File(TEST_JSON).delete();
         Message.resetForTests();
     }
 
     @AfterEach
     void cleanUp() {
-        new File("storedMessages.json").delete();
+        new File(TEST_JSON).delete();
     }
 
     // ---------- Message length ----------
@@ -107,7 +111,7 @@ public class MessageTest {
     void testStoreMessage() {
         Message m = new Message("+27718693002", MSG1, 0);
         assertEquals("Message successfully stored.", m.sentMessage("store"));
-        assertTrue(new File("storedMessages.json").exists());
+        assertTrue(new File(TEST_JSON).exists());
     }
 
     // ---------- Totals / printing ----------
