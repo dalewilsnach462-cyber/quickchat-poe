@@ -205,6 +205,7 @@ public class Main {
         }
     }
 
+    // Keeps asking until the user types a whole number greater than 0
     private static int readPositiveInt(Scanner scanner, String prompt) {
         while (true) {
             System.out.print(prompt);
