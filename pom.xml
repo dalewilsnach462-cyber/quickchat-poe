@@ -30,6 +30,17 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!--
+            org.json (JSON-Java) is used to store messages as JSON (Part 2).
+            Reference: Stleary, 2024. JSON-in-Java. Available at:
+            https://github.com/stleary/JSON-java (Accessed: 2026).
+        -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
+        </dependency>
     </dependencies>
 
     <build>
